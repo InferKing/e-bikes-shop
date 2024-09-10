@@ -1,0 +1,57 @@
+{% block content %}
+<div id="carouselExampleDark" class="carousel carousel-dark slide bg-light" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-center h-100 flex-wrap">
+            <div class="d-flex-item">
+                <div class="position-relative h-100 d-flex justify-content-center">
+                    <div class="position-absolute top-50 start-50 translate-middle w-100 px-5">
+                        <div class="text-muted fs-6">New inspiration of 2024</div>
+                        <div class="fw-bold fs-1">E-bikes only for <span class=" d-inline bg-dark text-light px-2 py-1 rounded-3">you</span>!</div>
+                        <div class="mt-4 w-100">
+                            <a href="#" class="d-block btn btn-outline-dark my-2">Shop now</a>
+                            <a href="#" class="d-block btn btn-dark">Check our news</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex-item">
+                <div class="d-block w-100 slider-card" style="background-image: url(../static/images/carousel1.png)"></div>
+            </div>
+        </div>
+        
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center h-100 flex-wrap">
+          <div class="d-flex-item">
+              <div class="position-relative h-100 d-flex justify-content-center">
+                  <div class="position-absolute top-50 start-50 translate-middle w-100 px-5">
+                      <div class="text-muted fs-6">New inspiration of 2024</div>
+                      <div class="fw-bold fs-1">Buy your new <span class=" d-inline bg-dark text-light px-2 py-1 rounded-3">dream</span>!</div>
+                      <div class="mt-4 w-100">
+                          <a href="#" class="d-block btn btn-dark my-2">Shop now</a>
+                          <a href="#" class="d-block btn btn-outline-dark">Check our news</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="d-flex-item">
+              <div class="d-block w-100 slider-card" style="background-image: url(../static/images/carousel2.png)"></div>
+          </div>
+      </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Предыдущий</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Следующий</span>
+    </button>
+  </div>
+{% endblock content %}

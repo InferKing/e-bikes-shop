@@ -1,0 +1,16 @@
+.carousel, .carousel-inner {
+    height: 500px;
+}
+.carousel-item {
+    height: 100%;
+}
+.slider-card {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+.d-flex-item {
+    width: 500px;
+    
+}
