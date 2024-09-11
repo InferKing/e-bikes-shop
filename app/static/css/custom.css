@@ -1,5 +1,5 @@
 .carousel, .carousel-inner {
-    height: 500px;
+    height: 600px;
 }
 .carousel-item {
     height: 100%;
@@ -12,5 +12,116 @@
 }
 .d-flex-item {
     width: 500px;
+}
+.box > .icon {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    line-height: 80px;
+    border-radius: 50%;
+}
+.icon + h3 {
+    font-size: medium;
+}
+span.dot {
+    width: 16px;
+    height: 16px;
+    border: 2px dashed #222222;
+    border-radius: 50%;
+    animation: rotation360 3s infinite linear;
+}
+span.dot::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    margin: 2px;
+    border-radius: 50%;
+    background-color: #222222;
     
+}
+.products-title {
+    position: relative;
+    font-size: medium;
+}
+.card a {
+    text-decoration: none;
+}
+.trending-img {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 100% 80%;
+    height: 100%;
+}
+.wrapper-trending-img {
+    padding: 10px;
+    height: 30dvh;
+    background-color: #f8f9fa;
+}
+.products-offer-img {
+    margin-top: 60px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.products-offer-content {
+    max-width: 550px;
+    border: 1px solid #ffffff;
+    text-align: center;
+    padding: 70px 40px;
+    position: relative;
+    z-index: 1;
+}
+.products-offer-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #ffffff;
+    z-index: -1;
+    margin: 10px;
+}
+.products-offer-content h1 {
+    font-size: 55px;
+}
+.scroll-down > i {
+    position: relative;
+    animation: toDown 1s infinite cubic-bezier(0.45, 0, 0.55, 1);
+}
+#carousel-news {
+    --f-carousel-slide-height: 60%;
+    --f-carousel-spacing: 15px;
+    --f-carousel-slide-width: calc((100% - 30px) / 3);
+}
+@media (max-width: 991px) {
+    #carousel-news {
+        --f-carousel-slide-width: calc(50% - 15px);
+    }
+}
+@media (max-width: 768px) {
+    #carousel-news {
+        --f-carousel-slide-width: 100%;
+    }
+}
+@keyframes toDown {
+    from {
+        top: 0;
+    }
+    50% {
+        top: 10px;
+    }
+    to {
+        top: 0;
+    }
+}
+@keyframes rotation360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
