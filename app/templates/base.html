@@ -20,7 +20,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css"
     />
-    <title>E-bikes Ind.</title>
+    {% block links %}{% endblock links %}
+    <title>{% block title %}{% endblock title %}</title>
   </head>
   <body>
     <div
@@ -47,17 +48,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="#"
+              <a class="nav-link text-dark" aria-current="page" href="{{ url_for('index.index') }}"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="#">News</a>
+              <a class="nav-link text-dark" href="{{ url_for('news') }}">News</a>
             </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle text-dark"
-                href="#"
+                href="{{ url_for('shop') }}"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -66,18 +67,18 @@
                 Shop
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">E-scooters</a></li>
-                <li><a class="dropdown-item" href="#">E-bikes</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('shop', category='e-scooters') }}">E-scooters</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('shop', category='e-scooters') }}">E-bikes</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Cyclo-bike</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('shop', category='e-scooters') }}">Cyclo-bike</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Contacts</a>
+              <a class="nav-link text-dark" href="{{ url_for('index.contacts') }}">Contacts</a>
             </li>
           </ul>
           <div class="d-flex">
-            <a class="nav-link text-dark p-0" href="#"
+            <a class="nav-link text-dark p-0" href="{{ url_for('cart')}}"
               >Cart<i class="bi bi-basket2-fill ps-2"></i
             ></a>
           </div>
@@ -141,7 +142,7 @@
                 </li>
                 <li>
                   <i class="far fa-envelope"></i> Email Us:
-                  <a href="mailto:support@comero.com">support@comero.com</a>
+                  <a href="mailto:support@e-bikes.com">support@e-bikes.com</a>
                 </li>
                 <li>
                   <i class="fas fa-fax"></i> Fax:
