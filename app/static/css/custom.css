@@ -96,6 +96,29 @@ span.dot::before {
     --f-carousel-spacing: 15px;
     --f-carousel-slide-width: calc((100% - 30px) / 3);
 }
+.single-footer-widget h3 {
+    font-size: 17px;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 14px;
+    padding-bottom: 5px;
+}
+.single-footer-widget h3::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #373737;
+    width: 45px;
+    height: 2px;
+}
+.single-footer-widget a {
+    color: #373737;
+}
+.single-footer-widget ul {
+    list-style: none;
+    padding-left: 0;
+}
 @media (max-width: 991px) {
     #carousel-news {
         --f-carousel-slide-width: calc(50% - 15px);

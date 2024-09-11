@@ -85,10 +85,90 @@
       </div>
     </nav>
     {% block content %}{% endblock content %}
+    <div class="w-100 mt-5 bg-light">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <div class="logo">
+                <a class="fw-bold fs-3 text-decoration-none text-dark" href="#">
+                  <i class="bi bi-bicycle"></i> 
+                  E-bikes Ind.</a>
+              </div>
+
+              <p id="current-time"></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h3>Quick Links</h3>
+
+              <ul class="quick-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">FAQ's</a></li>
+                <li><a href="#">Customer Services</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h3>Information</h3>
+
+              <ul class="information-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">FAQ's</a></li>
+                <li><a href="#">Customer Services</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h3>Contact Us</h3>
+
+              <ul class="footer-contact-info">
+                <li>
+                  <i class="fas fa-map-marker-alt"></i> Location: 2750 Quadra
+                  Street Victoria, Canada
+                </li>
+                <li>
+                  <i class="fas fa-phone"></i> Call Us:
+                  <a href="tel:+1234567898">(+123) 456-7898</a>
+                </li>
+                <li>
+                  <i class="far fa-envelope"></i> Email Us:
+                  <a href="mailto:support@comero.com">support@comero.com</a>
+                </li>
+                <li>
+                  <i class="fas fa-fax"></i> Fax:
+                  <a href="tel:+123456">+123456</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script>
+      let time = document.querySelector('#current-time');
+
+      function setTime() {
+        let date = new Date();
+        let dateString = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
+        let timeString = date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        time.innerHTML = `${dateString}, ${timeString}`;
+      }
+      setTime();
+      setInterval(setTime, 1000);
+    </script>
   </body>
 </html>
