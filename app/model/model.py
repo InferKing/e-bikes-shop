@@ -54,6 +54,7 @@ class Product(db.Model):
     img_path = Column(String(), unique=True, nullable=False)
     color = Column(String(), nullable=False)
     availability = Column(Integer, nullable=False)
+    category = Column(String(), nullable=False)
 
     def __repr__(self):
         return "<Product %r>" % self.name
