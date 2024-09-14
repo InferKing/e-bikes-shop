@@ -53,12 +53,12 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="{{ url_for('news') }}">News</a>
+              <a class="nav-link text-dark" href="{{ url_for('news.index') }}">News</a>
             </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle text-dark"
-                href="{{ url_for('shop') }}"
+                href="{{ url_for('shop.index') }}"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -67,10 +67,10 @@
                 Shop
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{{ url_for('shop', category='e-scooters') }}">E-scooters</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('shop', category='e-scooters') }}">E-bikes</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('shop.products', category='e-scooters') }}">E-scooters</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('shop.products', category='e-bikes') }}">E-bikes</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="{{ url_for('shop', category='e-scooters') }}">Cyclo-bike</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('shop.products', category='e-cyclo') }}">Cyclo-bike</a></li>
               </ul>
             </li>
             <li class="nav-item">
@@ -78,7 +78,7 @@
             </li>
           </ul>
           <div class="d-flex">
-            <a class="nav-link text-dark p-0" href="{{ url_for('cart')}}"
+            <a class="nav-link text-dark p-0" href="{{ url_for('cart.index')}}"
               >Cart<i class="bi bi-basket2-fill ps-2"></i
             ></a>
           </div>

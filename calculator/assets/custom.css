@@ -1,0 +1,12 @@
+.dropdown-menu {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+.dropdown-toggle {
+    display: block;
+    width: 100%;
+}
+h3 {
+    font-size: 1.2rem;
+}

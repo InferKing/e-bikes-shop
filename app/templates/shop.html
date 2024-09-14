@@ -1,47 +1,55 @@
-{% extends 'base.html' %} {% block title %}Shop{% endblock title %}
+{% extends 'base.html' %}
+{% block title %}Shop{% endblock title %}
 {% block links %} 
-
+<style>
+    .coll-img {
+        height: 500px;
+        background-position: 50% 80%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 8px;
+    }
+    .collections-box {
+        padding: 10px 14px;
+        -webkit-box-shadow: 0px 6px 10px -2px rgba(34, 60, 80, 0.15);
+        -moz-box-shadow: 0px 6px 10px -2px rgba(34, 60, 80, 0.15);
+        box-shadow: 0px 6px 10px -2px rgba(34, 60, 80, 0.15);
+    }
+</style>
 {% endblock links %} 
 {% block content %}
 <div class="container mt-5">
-  <div
-    class="products-title d-flex justify-content-center align-items-center py-3">
+  <div class="products-title d-flex justify-content-center align-items-center py-3">
     <span class="dot d-block"></span>
     <h3 class="mb-0 mx-2 fs-4">Collections</h3>
   </div>
   <div class="row">
     <!-- Here should be collections generated from server -->
-    <div class="col-lg-4 col-sm-12">
+    <div class="col-lg-4 col-sm-12 mb-5">
         <div class="collections-box">
-            <img src="{{ url_for('static', filename='img/category1.png') }}" alt="image">
-            <div class="category">
-                <h4>Accessories</h4>
-                <span>50 products</span>
+            <div class="coll-img" style="background-image: url({{ url_for('static', filename='img/category1.png') }})"></div>
+            <div class="category text-center pt-2">
+                <h4>E-scooters</h4>
+                <a href="{{ url_for('shop.products', category='e-scooters') }}" class="d-block btn btn-outline-dark mt-3 mb-2">Show More</a>
             </div>
-
-            <a href="#"></a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12 mb-5">
+        <div class="collections-box">
+            <div class="coll-img" style="background-image: url({{ url_for('static', filename='img/category2.png') }})"></div>
+            <div class="category text-center pt-2">
+                <h4>E-bikes</h4>
+                <a href="{{ url_for('shop.products', category='e-bikes') }}" class="d-block btn btn-dark mt-3 mb-2">Show More</a>
+            </div>
         </div>
     </div>
     <div class="col-lg-4 col-sm-12">
         <div class="collections-box">
-            <img src="{{ url_for('static', filename='img/category2.webp') }}" alt="image">
-            <div class="category">
-                <h4>Accessories</h4>
-                <span>50 products</span>
+            <div class="coll-img" style="background-image: url({{ url_for('static', filename='img/category3.png') }})"></div>
+            <div class="category text-center pt-2">
+                <h4>Cyclo-bikes</h4>
+                <a href="{{ url_for('shop.products', category='e-cyclo') }}" class="d-block btn btn-outline-dark mt-3 mb-2">Show More</a>
             </div>
-
-            <a href="#"></a>
-        </div>
-    </div>
-    <div class="col-lg-4 col-sm-12">
-        <div class="collections-box">
-            <img src="{{ url_for('static', filename='img/category3.jpg') }}" alt="image">
-            <div class="category">
-                <h4>Accessories</h4>
-                <span>50 products</span>
-            </div>
-
-            <a href="#"></a>
         </div>
     </div>
   </div>
