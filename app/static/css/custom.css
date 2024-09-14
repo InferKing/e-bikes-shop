@@ -132,9 +132,6 @@ span.dot::before {
     background-size: contain;
     background-position: center;
 }
-.wrapper-product-img {
-    background-color: #f8f9fa;
-}
 @media (max-width: 991px) {
     #carousel-news {
         --f-carousel-slide-width: calc(50% - 15px);
