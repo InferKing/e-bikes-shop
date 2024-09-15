@@ -1,8 +1,45 @@
 {% extends 'base.html' %}
 {% block title %}Product{% endblock title %}
 {% block content %}
-<div class="container">
-    <div class="col-6"></div>
-    <div class="col-6"></div>
+<div class="container mt-3">
+    <div class="row gx-5 gy-3 align-items-center ">
+        <div class="col-md-6 col-12">
+            <div class="product-img" style="background-image: url({{ url_for('static', filename=product.img_path) }})"></div>
+        </div>
+        <form method="POST" action="" class="col-md-6 col-12" onsubmit="event.preventDefault(); return false;">
+            <h3>{{ product.name }}</h3>
+            <p class="price-text">{{ product.price }}$</p>
+            <p>Color: <span class="color-output" style="background-color: {{ product.color }}"></span></p>
+            <p>Left in stock: <span class="product-availability">{{ product.availability }}</span></p>
+            <p class="product-descr">{{ product.description }}</p>
+            <button type="submit" class="text-uppercase fs-6 text-decoration-none d-block btn btn-dark my-2">Add To Cart</button>
+        </form>
+    </div>
 </div>
+<script>
+    const productId = "{{ product.id }}";
+    const isPicked = "{{ is_picked }}";
+    const btn = document.querySelector('button[type=submit]');
+    console.log(isPicked);
+    function disableBtn() {
+        btn.innerHTML = "Added To Cart!";
+        btn.disabled = true;
+        btn.classList.add('bg-success', 'text-light');
+    }
+    if (isPicked == "True") {
+        disableBtn();
+    }
+    document.querySelector('form').addEventListener('submit', async (e) => {
+        const res = await fetch('/shop/picked_product', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({productId})
+        });
+        if (res.ok) {
+            disableBtn();
+        }
+    });
+</script>
 {% endblock content %}
