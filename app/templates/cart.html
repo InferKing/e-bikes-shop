@@ -2,9 +2,69 @@
 {% block title %}Cart{% endblock title %}
 {% block links %}
 <style>
-    
+    .cart-img {
+        width: 17rem;
+        height: 12rem;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .cart-amount-wrapper {
+        width: 12rem;
+    }
+    .card-text {
+        width: 10rem;
+    }
+    .cart-amount {
+        text-align: center;
+    }
+
+    @media screen and (max-width: 768px) {
+        .card-text {
+            width: 7rem;
+            font-size: 0.9rem;
+        }
+        .cart-amount-wrapper {
+            width: 10rem;
+        }
+    }
 </style>
 {% endblock links %}
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-12 p-2">
+            <div class="text-danger">{{ error_msg }}</div>
+            {% for item in data %}
+            <div class="card mb-3">
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div class="cart-img" style="background-image: url({{ url_for('static', filename=item.img_path) }});"></div>
+                    </div>
+                    <div class="col-lg-8 d-flex align-items-center justify-content-center">
+                        <div class="card-body pe-0">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <p class="card-text"><small class="text-muted">Price: {{ item.price }}$</small></p>
+                            <div class="cart-amount-wrapper d-flex justify-content-between">
+                                <input type="button" class="form-control cart-amount me-2" value="-">
+                                <input type="text" class="form-control cart-amount me-2" placeholder="1" readonly>
+                                <input type="button" class="form-control cart-amount me-2" value="+">
+                            </div>
+                        </div>
+                        <p class="card-text p-2"><small class="text-muted fw-bold">Total: {{ item.price }}$</small></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-4 col-12 p-2">
 
+        </div>
+    </div>
+</div>
+<script>
+    const cartAmount = document.querySelectorAll(".cart-amount");
+    const cartAmountValue = document.querySelectorAll(".cart-amount-value");
+    const cartAmountBtn = document.querySelectorAll(".cart-amount-btn");
+</script>
 {% endblock content %}
