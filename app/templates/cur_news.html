@@ -1,10 +1,27 @@
 {% extends 'base.html' %}
 {% block title %}News{% endblock title %}
 {% block links %}
-<style>
-    
-</style>
 {% endblock links %}
 {% block content %}
-
+<div class="container"></div>
+    <div class="row justify-content-center pt-5">
+        <div class="col-md-7 col-12 news-container-page border">
+            <div class="wrapper-news-img">
+                <div class="news-img" style="background-image: url({{ url_for('static', filename=news.img_path) }})"></div>
+            </div>
+            <div class="p-3">
+                <h3 class="fs-4 pt-2 fw-normal">{{ news.title }}</h3>
+                <p class="fw-light">{{ news.description }}</p>
+            </div>
+            <div class="py-3 pt-2 d-flex align-items-center">
+                <span class="fw-bold px-3 pe-4">TAGS: </span>
+                <div class="tags d-flex align-items-center">
+                    <div class="d-block btn btn-outline-dark px-2 py-1 me-2">News</div>
+                    <div class="d-block btn btn-outline-dark px-2 py-1 me-2">Bikes</div>
+                    <div class="d-block btn btn-outline-dark px-2 py-1 me-2">Information</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}

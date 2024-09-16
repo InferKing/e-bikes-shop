@@ -1,10 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}News{% endblock title %}
 {% block links %}
-<style>
-    
-</style>
 {% endblock links %}
 {% block content %}
-
+<div class="container">
+    {% for item in news %}
+    <div class="row justify-content-center pt-5">
+        <div class="col-md-8 col-12 news-container">
+            <a class="d-block" href="{{ url_for('news.news', id=item.id) }}">
+              <div class="wrapper-news-img">
+                <div class="news-img" style="background-image: url({{ url_for('static', filename=item.img_path) }})"></div>
+              </div>
+            </a>
+            <div class="p-3">
+                <h3 class="fs-4 pt-2 fw-normal">{{ item.title }}</h3>
+                <p class="fw-light">{{ item.description }}</p>
+                <a href="{{ url_for('news.news', id=item.id) }}" class="text-uppercase text-secondary text-decoration-none my-2 fw-bold read-more">Read More</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content %}

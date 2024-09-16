@@ -135,6 +135,28 @@ span.dot::before {
     background-size: contain;
     background-position: center;
 }
+.news-container {
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    padding: 0;
+}
+.read-more {
+    font-size: 0.9rem;
+}
+.wrapper-news-img {
+    transition: all 0.3s ease;
+}
+.wrapper-news-img:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
+}
+.news-img {
+    height: 35rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 .price-text, .product-descr {
     font-size: 1.4rem;
     padding: 6px 12px;
