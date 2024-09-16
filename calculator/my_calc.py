@@ -10,7 +10,7 @@ name_matches = [
     {"label": "Десятичная (10)", "field": 10},
     {"label": "Шестнадцатеричная (16)", "field": 16},
 ] + [{"label": f"{value}-ная", "field": value} for value in range(3, 37) if value not in most_used]
-
+result_style = {"padding": "5px 8px", "display": "inline-block", "backgroundColor": "#f8f9fa", "border": "1px solid #dee2e6", "borderRadius": "0.25rem"}
 
 def get_dropdown(is_from):
     def pick_id(flag):
@@ -111,7 +111,7 @@ def show_result(n_clicks, data, value):
             return html.H3("Нельзя указывать отрицательные числа!", className="my-3")
         if is_equal_zero(value):
             return get_correct_layout(_from, _to, value, 0)
-        if _from and _to and int(value) > 0:
+        if _from and _to and int(value, _from) > 0:
             return get_correct_layout(_from, _to, value, translate(_from, _to, value))
         return html.H3("Не указаны системы счисления!", className="my-3")
 
@@ -156,7 +156,10 @@ def is_value_in_x(value: str, x: int) -> bool:
         return False
 
 def is_equal_zero(x: str):
-    return int(x) == 0
+    try:
+        return int(x) == 0
+    except ValueError:
+        return x == ""
 
 def get_correct_layout(_from: int, _to: int, value: str, calc_value: int):
     return html.Div([
@@ -167,7 +170,7 @@ def get_correct_layout(_from: int, _to: int, value: str, calc_value: int):
             html.Span(" = "),
             html.B(calc_value),
             html.Sub(_to)
-        ]),             
+        ], style=result_style),
     ], className="my-3")
 
 def remove_zeros(value: str):
@@ -175,6 +178,7 @@ def remove_zeros(value: str):
     if not value:
         return '0'
     return value
+
 
 if __name__ == '__main__':
     app.run(port=8055, debug=True)
