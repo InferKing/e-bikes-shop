@@ -37,6 +37,15 @@ class User(db.Model):
     is_admin = Column(Boolean, default=False)  # True if admin
     cart = relationship("Cart", uselist=False, backref="user")
 
+    def get_data(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "email": self.email,
+            "password": self.password,
+            "is_admin": self.is_admin
+        }
+
     def __init__(self, username, email, password, is_admin = False):
         self.username = username
         self.email = email
@@ -71,6 +80,18 @@ class Product(db.Model):
     color = Column(String(), nullable=False)
     availability = Column(Integer, nullable=False)
     category = Column(String(), nullable=False)
+
+    def get_data(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "description": self.description,
+            "price": self.price,
+            "img_path": self.img_path,
+            "color": self.color,
+            "availability": self.availability,
+            "category": self.category,
+        }
 
     def __repr__(self):
         return "<Product %r>" % self.name

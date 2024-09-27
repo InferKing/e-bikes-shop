@@ -37,34 +37,78 @@
             <div class="text-danger">{{ error_msg }}</div>
             {% for item in data %}
             <div class="card mb-3">
-                <div class="row align-items-center">
+                <div class="row align-items-center picked-item">
                     <div class="col-lg-4">
                         <div class="cart-img" style="background-image: url({{ url_for('static', filename=item.img_path) }});"></div>
                     </div>
                     <div class="col-lg-8 d-flex align-items-center justify-content-center">
                         <div class="card-body pe-0">
                             <h5 class="card-title">{{ item.name }}</h5>
-                            <p class="card-text"><small class="text-muted">Price: {{ item.price }}$</small></p>
+                            <p class="card-text"><small class="text-muted">Price: <span class="price">{{ item.price }}$</span></small></p>
                             <div class="cart-amount-wrapper d-flex justify-content-between">
                                 <input type="button" class="form-control cart-amount me-2" value="-">
                                 <input type="text" class="form-control cart-amount me-2" placeholder="1" readonly>
                                 <input type="button" class="form-control cart-amount me-2" value="+">
                             </div>
                         </div>
-                        <p class="card-text p-2"><small class="text-muted fw-bold">Total: {{ item.price }}$</small></p>
+                        <p class="card-text p-2"><small class="text-muted fw-bold">Total: <span class="total-price">{{ item.price }}$</span></small></p>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
         <div class="col-md-4 col-12 p-2">
-
+            <div class="card">
+                <form action="" method="post">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Order form</h5>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" name="address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="total" class="form-label">Total</label>
+                            <input type="text" class="form-control" id="total" name="total" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Send order</button>
+                    </div>
+            </div>
         </div>
     </div>
 </div>
 <script>
-    const cartAmount = document.querySelectorAll(".cart-amount");
-    const cartAmountValue = document.querySelectorAll(".cart-amount-value");
-    const cartAmountBtn = document.querySelectorAll(".cart-amount-btn");
+    let allData;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        let wrappers = document.querySelectorAll('.picked-item');
+        for (let i = 0; i < wrappers.length; i++) {
+            item = wrappers[i];
+            const price = item.querySelector('.price');
+            const totalPrice = item.querySelector('.total-price');
+            // добавить обработку input, изменения действий и проверка на оставшееся количество
+        }
+    })
+
+    window.onload = function() {
+        fetch('/cart/get_cart')
+            .then(response => response.json())
+            .then(data => {
+                allData = data;
+            })
+            .catch(error => console.log(error));
+    }
+
 </script>
 {% endblock content %}
